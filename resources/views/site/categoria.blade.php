@@ -3,7 +3,8 @@
 @section('conteudo')
 
     <div class="container mt-5">
-        <div class="row ">
+        <div class="row">
+            <h3>Categoria {{$categoria->nome}}</h3>
             @forelse ($produtos as $produto)
                 <div class="col-sm-12 col-md-4 mb-sm-3">
                     <div class="card">

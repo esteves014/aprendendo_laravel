@@ -10,7 +10,13 @@ class Produto extends Model
     use HasFactory;
     protected $table = 'produtos';
 
-    public function user(){
+    public function user()
+    {
         return $this->beLongsTo(User::class, 'id_user');
+    }
+
+    public function categoria()
+    {
+        return $this->beLongsTo(Categoria::class, 'id_categoria');
     }
 }
