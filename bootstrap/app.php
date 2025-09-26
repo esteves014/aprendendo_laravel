@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -12,11 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // $middleware->redirectGuestsTo(function (Request $request) {
-        //     return route('login.form');
-        // });
+        $middleware->redirectGuestsTo(function (Request $request) {
+            return route('login.form');
+        });
         $middleware->alias([
-            'LogVerificate' => \App\Http\Middleware\LogVerificate::class,
             'CheckEmail'    => \App\Http\Middleware\CheckEmail::class,
         ]);
     })
