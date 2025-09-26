@@ -24,13 +24,8 @@ class CheckEmail
         $data = explode('@', $email);
         $servidorEmail = $data[1];
 
-        switch ($servidorEmail) {
-            case 'gmail.com':
-                return redirect(route('admin.dashboard'));
-                break;
-            default:
-                return redirect(route('login.form'));
-                break;
+        if ($servidorEmail != 'gmail.com') {
+            return redirect(route('login.form'));
         }
 
         return $next($request);

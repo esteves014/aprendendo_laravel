@@ -12,9 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+
         $middleware->redirectGuestsTo(function (Request $request) {
             return route('login.form');
         });
+
         $middleware->alias([
             'CheckEmail'    => \App\Http\Middleware\CheckEmail::class,
         ]);

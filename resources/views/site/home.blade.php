@@ -11,7 +11,9 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ Str::limit($produto->nome, 30) }}</h5>
                             <p class="card-text">{{ Str::limit($produto->descricao, 50) }}</p>
-                            <a href="{{route('details', $produto->slug)}}" class="btn btn-primary">Comprar</a>
+                            @can('verProduto', $produto)
+                                <a href="{{ route('details', $produto->slug) }}" class="btn btn-primary">Comprar</a>
+                            @endcan
                         </div>
                     </div>
                 </div>
