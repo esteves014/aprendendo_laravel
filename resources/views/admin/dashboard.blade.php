@@ -70,7 +70,7 @@
             data: {
                 labels: [{{ $userAno }}],
                 datasets: [{
-                    label: [{{!! $userLabel !!}}],
+                    label: {!! $userLabel !!},
                     data: [{{ $userTotal }}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 1)',
@@ -101,14 +101,16 @@
         var myChart2 = new Chart(ctx2, {
             type: 'pie',
             data: {
-                labels: ['Facebook', 'Google', 'Instagram'],
+                labels: [{!! $catLabel !!}],
                 datasets: [{
                     label: 'Visitas',
-                    data: [12, 19, 3],
+                    data: [{{ $catTotal }}],
                     backgroundColor: [
                         'rgba(255, 99, 132)',
                         'rgba(54, 162, 235)',
-                        'rgba(255, 159, 64)'
+                        'rgba(255, 159, 64)',
+                        'rgba(255, 10, 20)',
+                        'rgba(50, 80, 200)'
                     ]
                 }]
             }
